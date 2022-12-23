@@ -1,7 +1,7 @@
 from django.urls import path
+
 from mainapp import views
 from mainapp.apps import MainappConfig
-
 
 app_name = MainappConfig.name
 
@@ -13,5 +13,4 @@ urlpatterns = [
     path("contacts/", views.ContactsPageView.as_view()),
     path("doc_site/", views.DocSitePageView.as_view()),
     path("login/", views.LoginPageView.as_view()),
-    
 ]
