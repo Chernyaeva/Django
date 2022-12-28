@@ -35,10 +35,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="news.html">Новости</a>
+              <a class="nav-link" href="/news/">Новости</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="courses_list.html">Курсы</a>
+              <a class="nav-link" href="/courses/">Курсы</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="ddProfile" role="button" data-toggle="dropdown"
@@ -56,7 +56,7 @@
               </div>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="contacts.html">Контакты</a>
+              <a class="nav-link" href="contacts/">Контакты</a>
             </li>
           </ul>
           <span><a href="#">🇷🇺</a> <i class="fas fa-grip-lines-vertical"></i> <a href="#">🇬🇧</a></span>
@@ -78,9 +78,9 @@
 
           <div class="card my-2">
             <div class="card-body">
-              <h5 class="card-title">Новость</h5>
+              <h5 class="card-title">{{ news_title }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">2021-04-29 20-50-26</h6>
-              <p class="card-text">Предварительное описание новости</p>
+              <p class="card-text">{{ news_preview }}</p>
               <a href="#" class="card-link">Подробнее</a>
             </div>
           </div>
@@ -183,7 +183,7 @@
           <p>
             <ul class="list-unstyled">
               <li><a href="index.html">Домашняя</a></li>
-              <li><a href="news.html">Новости</a></li>
+              <li><a href="news/">Новости</a></li>
               <li><a href="login.html">Войти</a></li>
             </ul>
           </p>
