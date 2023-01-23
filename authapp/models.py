@@ -62,11 +62,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["email"]
 
+    class Meta:
 
-class Meta:
-
-    verbose_name = _("user")
-    verbose_name_plural = _("users")
+        verbose_name = _("user")
+        verbose_name_plural = _("users")
 
     def clean(self):
 
