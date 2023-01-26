@@ -23,8 +23,7 @@
               Профиль
             </a>
             <div class="dropdown-menu" aria-labelledby="ddProfile">
-              <a class="dropdown-item" href="{% url 'authapp:profile_edit' %}">Редактировать
-                профиль</a>
+              <a class="dropdown-item" href="{% url 'authapp:profile_edit' pk=request.user.pk%}">Редактировать профиль</a>
               <a class="dropdown-item" href="#">Мои курсы</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Модерация</a>
