@@ -28,9 +28,11 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Модерация</a>
               {% if user.is_superuser %}
-                <a class="dropdown-item" href="{% url 'admin:index' %}">Административный
+                <a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank">Административный
                   раздел</a>
+                <a class="dropdown-item" href="{% url 'mainapp:log_view' %}" target="_blank">Лог</a>
               {% endif %}
+
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'authapp:logout' %}">Выход</a>
             </div>
