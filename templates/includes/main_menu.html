@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="{% url 'mainapp:main_page' %}">
@@ -11,19 +11,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item {% if request.resolver_match.view_name == 'mainapp:news' %}active{% endif %}">
-          <a class="nav-link" href="{% url 'mainapp:news' %}">Новости</a>
+          <a class="nav-link" href="{% url 'mainapp:news' %}">
+            {% translate "News" %}
+          </a>
         </li>
         <li class="nav-item {% if request.resolver_match.view_name == 'mainapp:courses' %}active{% endif %}">
-          <a class="nav-link" href="{% url 'mainapp:courses' %}">Курсы</a>
+          <a class="nav-link" href="{% url 'mainapp:courses' %}">
+            {% translate "Courses" %}
+          </a>
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="ddProfile" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Профиль
+              {% translate "Profile" %}
             </a>
             <div class="dropdown-menu" aria-labelledby="ddProfile">
-              <a class="dropdown-item" href="{% url 'authapp:profile_edit' pk=request.user.pk%}">Редактировать профиль</a>
+              <a class="dropdown-item" href="{% url 'authapp:profile_edit' pk=request.user.pk%}">Редактировать
+                профиль</a>
               <a class="dropdown-item" href="#">Мои курсы</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Модерация</a>
@@ -32,21 +37,39 @@
                   раздел</a>
                 <a class="dropdown-item" href="{% url 'mainapp:log_view' %}" target="_blank">Лог</a>
               {% endif %}
-
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'authapp:logout' %}">Выход</a>
             </div>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'authapp:login' %}">Вход</a>
+            <a class="nav-link" href="{% url 'authapp:login' %}">
+              {% translate "Enter" %}
+            </a>
           </li>
         {% endif %}
         <li class="nav-item {% if request.resolver_match.view_name == 'mainapp:contacts' %}active{% endif %}">
-          <a class="nav-link" href="{% url 'mainapp:contacts' %}">Контакты</a>
+          <a class="nav-link" href="{% url 'mainapp:contacts' %}">
+            {% translate "Contacts" %}
+          </a>
         </li>
       </ul>
-      <span><a href="#">󰐮</a> <i class="fas fa-grip-lines-vertical"></i> <a href="#">󰏅</a></span>
+      <div class="row justify-content-end m-0">
+        <div class="col p-0 border-right">
+          <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="language" type="hidden" value="ru">
+            <button type="submit" class="btn btn-link">🏳️‍🌈</button>
+          </form>
+        </div>
+        <div class="col p-0 border-left">
+          <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="language" type="hidden" value="en">
+            <button type="submit" class="btn btn-link">🏴‍☠️</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
